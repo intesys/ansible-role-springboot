@@ -2,7 +2,7 @@
 
 - name: "Prerequisites | Install python-lxml required by maven_artifact module on remote host"
   package:
-    name: python-lxml
+    name: python3-lxml
     state: present
   when: >
         sb_app_artifact_file is not defined and
