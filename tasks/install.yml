@@ -45,6 +45,7 @@
     username: "{{ sb_app_repository_username | default(omit) }}"
     password: "{{ sb_app_repository_password | default(omit) }}"
     dest: "{{ sb_app_artifact_destination_file }}"
+    verify_checksum: always
     mode: 0500
   when: >
         sb_app_artifact_file is not defined and
@@ -63,6 +64,7 @@
     username: "{{ sb_app_repository_username | default(omit) }}"
     password: "{{ sb_app_repository_password | default(omit) }}"
     dest: "/{{ sb_local_maven_artifact_download_temp_folder }}/{{ sb_app_artifact_id }}-{{ sb_app_version }}.{{ sb_app_extension }}"
+    verify_checksum: always
     mode: 0500
   delegate_to: localhost
   when: >
